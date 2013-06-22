@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+
+  "name": "Forreter Robot Reader Agent",
+  "description": "Robot for automatically reading Forrester documents.",
+  "version": "1.0",
+
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "http://www.forrester.com/*"
+  ],
+
+  "background": { 
+    "scripts": ["background.js"] 
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://www.forrester.com/*"],
+      "js": ["jquery-1.8.3.min.js", "crowl.js"]
+    }
+  ],
+
+  "page_action": {
+    "default_icon": {                    // optional
+      "19": "images/icon-19.png",           // optional
+      "38": "images/icon-38.png"            // optional
+    },
+    "default_title": "Forrester Robot",      // optional; shown in tooltip
+    "default_popup": "popup.html"        // optional
+  }
+
+
+}
